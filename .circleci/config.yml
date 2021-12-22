@@ -1,13 +1,14 @@
 version: 2.1
 orbs:
-  node: circleci/node@1.1 
-  heroku: circleci/heroku@0.0.10 
-  coveralls: coveralls/coveralls@1.0.6 
+  node: circleci/node@5.0.0
+  heroku: circleci/heroku@1.2.6
+  coveralls: coveralls/coveralls@1.0.6
 workflows:
   heroku_deploy:
     jobs:
       - build
       - heroku/deploy-via-git:
+          api-key: 7712d435-103a-455c-8b7f-a63e2a3cde67
           requires:
             - build
           filters:
